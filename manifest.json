@@ -1,23 +1,17 @@
 {
   "manifest_version": 3,
-  "name": "엔트리 블록 클린업 프로",
-  "version": "1.1",
-  "description": "사용하지 않는 블록을 한 번에 정리합니다.",
+  "name": "엔트리 블록 클린업 최종",
+  "version": "1.4",
   "permissions": ["activeTab", "scripting"],
   "action": {
     "default_popup": "popup.html"
   },
   "content_scripts": [
     {
-      "matches": ["*://playentry.org/*"],
+      "matches": ["*://playentry.org/ws/*"],
       "js": ["content.js"],
-      "run_at": "document_end"
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["inject.js"],
-      "matches": ["*://playentry.org/*"]
+      "run_at": "document_start",
+      "world": "MAIN"
     }
   ]
 }
