@@ -1,10 +1,9 @@
-// inject.js 주입
-const s = document.createElement('script');
-s.src = chrome.runtime.getURL('inject.js');
-s.onload = function() { this.remove(); };
-(document.head || document.documentElement).appendChild(s);
+// inject.js를 페이지에 직접 주입하여 Entry 객체에 접근 가능하게 함
+const script = document.createElement('script');
+script.src = chrome.runtime.getURL('inject.js');
+(document.head || document.documentElement).appendChild(script);
 
-// 팝업으로부터 메시지 수신
+// 팝업의 메시지를 inject.js로 전달
 window.addEventListener("message", (event) => {
   if (event.data.type === "CLEAN_BLOCKS") {
     window.dispatchEvent(new CustomEvent('ExecuteCleanUp'));
