@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "엔트리 블록 클린업",
+  "version": "1.0",
+  "description": "사용하지 않는 블록을 한 번에 삭제합니다.",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://playentry.org/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["*://playentry.org/*"]
+    }
+  ]
+}
