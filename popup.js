@@ -9,6 +9,6 @@ document.getElementById('cleanBtn').addEventListener('click', async () => {
       }
     });
   } else {
-    alert("엔트리 사이트에서만 작동합니다.");
+    alert("엔트리 사이트에서 실행해 주세요.");
   }
 });
